@@ -16,6 +16,6 @@ Responsive Design: Optimized for desktop, tablet, and mobile using Tailwind CSS.
 Technologies Used
 Frontend: React, JavaScript, Tailwind CSS
 API: TheMealDB API
-Deployment: Netlify or Vercel
+Deployment:  Vercel
 Version Control: Git and GitHub
 
