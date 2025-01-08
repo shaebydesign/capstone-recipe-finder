@@ -1,23 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+import SearchBar from "../components/SearchBar";
+import CategoryCarousel from "../components/CategoryCarousel";
+import CTAButton from "../components/CTAButton";
 
 function HomePage() {
   return (
     <div className="home-page">
+      {/* Header */}
       <Header />
-      <main className="container mx-auto text-center py-12">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Recipe Finder</h1>
-        <p className="text-lg mb-6">
-          Discover amazing recipes from around the world. Start exploring now!
-        </p>
-        <Link
-          to="/recipes"
-          className="bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700"
-        >
-          Explore Recipes
-        </Link>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-8">
+        {/* Search Bar */}
+        <SearchBar />
+
+        {/* Hero Section */}
+        <section className="text-center py-12 bg-gray-100 rounded-lg shadow-md">
+          <h1 className="text-4xl font-bold mb-4">
+            Discover Delicious Recipes
+          </h1>
+          <p className="text-lg text-gray-600 mb-6">
+            Explore a world of flavors and find recipes that you'll love!
+          </p>
+          <CTAButton text="Get Started" link="/recipes" />
+        </section>
+
+        {/* Categories Carousel */}
+        <section className="py-12">
+          <h2 className="text-2xl font-bold mb-4">Explore by Categories</h2>
+          <CategoryCarousel />
+        </section>
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
