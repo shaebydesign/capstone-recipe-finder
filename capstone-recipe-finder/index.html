@@ -1,13 +1,52 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Meta Tags for SEO and responsiveness -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <meta name="description" content="Explore and find delicious recipes. Browse categories and save your favorite dishes." />
+    <meta name="keywords" content="recipes, cooking, food, categories, meals" />
+    <meta name="author" content="Your Name or Company" />
+    <link rel="icon" href="/path-to-your-icon/favicon.ico" type="image/x-icon" />
+    
+    <title>Recipe Finder</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+
+   
+    <link rel="stylesheet" href="styles.css" /> <!-- Reference your external CSS file if needed -->
+    
+    <!-- Tailwind CSS for utility-based styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Social Media Meta Tags for rich preview (Open Graph and Twitter Cards) -->
+    <meta property="og:title" content="Recipe Finder" />
+    <meta property="og:description" content="Find delicious recipes by category or search for your favorite dishes!" />
+    <meta property="og:image" content="path-to-your-image/preview-image.jpg" />
+    <meta property="og:url" content="https://www.yourwebsite.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Recipe Finder" />
+    <meta name="twitter:description" content="Find delicious recipes by category or search for your favorite dishes!" />
+    <meta name="twitter:image" content="path-to-your-image/preview-image.jpg" />
   </head>
-  <body>
+  
+  <body class="bg-gray-100 font-roboto">
+    <!-- Hero Section with your h1 style -->
+    <header class="bg-cover bg-center h-[600px] flex flex-col items-center justify-center text-white relative" style="background-image: url('/assets/hero-pattern.jpg');">
+      <div class="absolute inset-0 bg-black opacity-40"></div>
+      <h1 class="text-black text-center font-sans text-4xl font-bold leading-[60px] z-10">
+        Discover Delicious Recipes From Around The World!
+      </h1>
+      <p class="text-lg mb-8 text-center z-10">
+        Find and save recipes you’ll love. Browse by category or search for your favorite dishes.
+      </p>
+    </header>
+
+    <!-- Main content goes here -->
     <div id="root"></div>
+
+    <!-- Scripts -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

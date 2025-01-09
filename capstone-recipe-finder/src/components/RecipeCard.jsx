@@ -1,25 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
 
-function RecipeCard({ recipe }) {
+const RecipeCard = ({ recipe }) => {
   return (
-    <div className="recipe-card bg-white shadow rounded overflow-hidden">
-      <img
-        src={recipe.image}
-        alt={recipe.title}
-        className="w-full h-48 object-cover"
-      />
+    <div className="border rounded-lg overflow-hidden shadow-lg">
+      {/* Use real API image */}
+      <img src={recipe.strMealThumb} alt={recipe.strMeal} className="w-full h-48 object-cover" />
+      
+      {/* Use real API text */}
       <div className="p-4">
-        <h2 className="text-xl font-bold mb-2">{recipe.title}</h2>
-        <Link
-          to={`/recipes/${recipe.id}`}
-          className="text-blue-600 hover:underline"
-        >
-          View Details
-        </Link>
+        <h3 className="font-bold text-lg">{recipe.strMeal}</h3>
+        <p className="text-sm text-gray-600">{recipe.strCategory} - {recipe.strArea}</p>
       </div>
     </div>
   );
-}
+};
 
 export default RecipeCard;

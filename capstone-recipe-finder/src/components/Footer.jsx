@@ -1,13 +1,11 @@
 import React from "react";
 
-function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-4 mt-12">
-      <div className="container mx-auto text-center">
-        <p>&copy; 2025 Recipe Finder. All rights reserved.</p>
-      </div>
+    <footer className="bg-gray-800 text-white text-center py-4">
+      <p>© 2025 Recipe Finder. All rights reserved.</p>
     </footer>
   );
-}
+};
 
 export default Footer;

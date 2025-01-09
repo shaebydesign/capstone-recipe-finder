@@ -1,52 +1,49 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Header from "../components/Header";
+import React from 'react';
 
-function RecipeDetailsPage() {
-  const { id } = useParams();
-
-  // Replace with API call to fetch recipe details
-  const recipe = {
-    title: "Spaghetti Bolognese",
-    image: "/images/spaghetti.jpg",
-    description:
-      "A classic Italian pasta dish made with ground meat, tomatoes, and herbs.",
-    ingredients: ["Spaghetti", "Ground Beef", "Tomatoes", "Onion", "Garlic"],
-    instructions: [
-      "Cook spaghetti according to package instructions.",
-      "In a pan, sauté onions and garlic.",
-      "Add ground beef and cook until browned.",
-      "Add tomatoes and simmer for 20 minutes.",
-      "Serve sauce over spaghetti.",
-    ],
-  };
+const RecipeDetails = ({ recipe }) => {
+  if (!recipe) return <div>Recipe not found</div>;
 
   return (
-    <div className="recipe-details-page">
-      <Header />
-      <main className="container mx-auto py-12">
-        <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
-        <img
-          src={recipe.image}
-          alt={recipe.title}
-          className="w-full max-h-96 object-cover rounded mb-6"
-        />
-        <p className="text-lg mb-4">{recipe.description}</p>
-        <h2 className="text-2xl font-bold mb-2">Ingredients</h2>
-        <ul className="list-disc ml-8 mb-6">
-          {recipe.ingredients.map((item, index) => (
-            <li key={index}>{item}</li>
+    <div className="max-w-4xl mx-auto p-6">
+      {/* Real API image */}
+      <img src={recipe.strMealThumb} alt={recipe.strMeal} className="w-full rounded-lg mb-6" />
+      
+      {/* Real title */}
+      <h1 className="text-3xl font-bold mb-4">{recipe.strMeal}</h1>
+      
+      {/* Ingredients */}
+      <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
+      <ul className="list-disc pl-6">
+        {Object.keys(recipe)
+          .filter((key) => key.startsWith("strIngredient") && recipe[key])
+          .map((key, index) => (
+            <li key={index}>
+              {recipe[key]} - {recipe[`strMeasure${key.replace("strIngredient", "")}`] || "N/A"}
+            </li>
           ))}
-        </ul>
-        <h2 className="text-2xl font-bold mb-2">Instructions</h2>
-        <ol className="list-decimal ml-8">
-          {recipe.instructions.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ol>
-      </main>
+      </ul>
+
+      {/* Instructions */}
+      <h2 className="text-xl font-semibold mt-6 mb-2">Instructions</h2>
+      <p className="text-gray-700">{recipe.strInstructions || "No instructions available"}</p>
+
+      {/* YouTube Video */}
+      {recipe.strYoutube && (
+        <div className="mt-6">
+          <h2 className="text-xl font-semibold mb-2">Video Tutorial</h2>
+          <iframe
+            width="100%"
+            height="400"
+            src={`https://www.youtube.com/embed/${recipe.strYoutube.split("v=")[1]}`}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      )}
     </div>
   );
-}
+};
 
-export default RecipeDetailsPage;
+export default RecipeDetails;
