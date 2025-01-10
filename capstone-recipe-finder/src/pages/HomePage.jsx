@@ -18,7 +18,7 @@ const HomePage = () => {
         setError('');
       } else {
         setRecipes([]);
-        setError('No recipes found for your search.');
+        setError('No recipes found. Try searching for another dish!');
       }
     } catch (error) {
       setError('An error occurred while fetching recipes.');
@@ -26,29 +26,28 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100 min-h-screen">
       <Navbar />
-
+      
       {/* Hero Section */}
-      <header
-        className="bg-cover bg-center h-[600px] flex flex-col items-center justify-center text-white relative"
-        style={{ backgroundImage: "url('/assets/hero-pattern.jpg')" }} 
-      >
-        <div className="absolute inset-0 bg-black opacity-40"></div>
-        <h1 className="text-black text-center font-sans text-4xl font-bold leading-[60px]">
-          Explore Delicious Recipes
-        </h1>
-        <p className="text-lg mb-8 text-center z-10">
-          Find and save recipes you’ll love. Browse by category or search for your favorite dishes.
-        </p>
-        <CTAButton text="Get Started" link="/recipes" />
+      <header className="relative bg-hero-pattern bg-cover bg-center h-[600px] flex flex-col items-center justify-center text-white">
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="relative text-center z-10">
+          <h1 className="text-5xl font-extrabold leading-tight mb-4">
+            Discover Delicious Recipes
+          </h1>
+          <p className="text-lg mb-6">
+            Browse by category or search for your favorite dishes.
+          </p>
+          <CTAButton text="Get Started" link="/recipes" />
+        </div>
       </header>
 
-      {/* Search and Recipes Section */}
-      <div className="container mx-auto p-4">
+      {/* Main Content */}
+      <div className="container mx-auto p-6">
         <SearchBar onSearch={fetchRecipes} />
-        {error && <p className="text-red-500 mt-4">{error}</p>}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+        {error && <p className="text-red-600 mt-4">{error}</p>}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {recipes.map((recipe) => (
             <RecipeCard key={recipe.idMeal} recipe={recipe} />
           ))}

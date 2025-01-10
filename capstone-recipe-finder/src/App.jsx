@@ -2,9 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import RecipeListPage from "./pages/RecipeListPage";
-import RecipeDetailsPage from "./pages/RecipeDetailsPage";
-import './index.css'; // This ensures Tailwind is applied globally
-
+import RecipeDetails from "./pages/RecipeDetails";
+import './index.css';
 
 const App = () => {
   return (
@@ -12,7 +11,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/recipes" element={<RecipeListPage />} />
-        <Route path="/recipes/:id" element={<RecipeDetailsPage />} />
+        <Route path="/recipes/:id" element={<RecipeDetails />} />
       </Routes>
     </Router>
   );
