@@ -2,28 +2,35 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SearchBar from "../components/SearchBar";
-import RecipeCard from "../components/RecipeCard";
 
-const RecipeListPage = ({ recipes }) => {
+const RecipeListPage = () => {
   return (
     <>
       <Navbar />
-      <header className="bg-gray-100 py-10">
-        <h1 className="text-5xl font-bold text-center">All Recipes</h1>
-        <p className="text-center text-gray-600 mt-3">
-          Search and filter through a variety of recipes.
-        </p>
+      <header className="bg-gray-200 py-6">
+        <h1 className="text-4xl font-bold text-center">Recipes</h1>
       </header>
-
-      <main className="container mx-auto p-6">
+      <main className="p-6">
         <SearchBar />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-          {recipes.map((recipe) => (
-            <RecipeCard key={recipe.idMeal} recipe={recipe} />
+        <div className="grid grid-cols-3 gap-4 mt-6">
+          {[1, 2, 3, 4, 5, 6].map((recipe) => (
+            <div
+              key={recipe}
+              className="border rounded-lg shadow-lg overflow-hidden"
+            >
+              <img
+                src={`https://via.placeholder.com/150?text=Recipe+${recipe}`}
+                alt={`Recipe ${recipe}`}
+                className="w-full"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-bold">Recipe {recipe}</h3>
+                <p className="text-gray-700">A brief description of Recipe {recipe}.</p>
+              </div>
+            </div>
           ))}
         </div>
       </main>
-
       <Footer />
     </>
   );

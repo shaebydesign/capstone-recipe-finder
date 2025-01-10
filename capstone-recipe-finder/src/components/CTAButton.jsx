@@ -1,14 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const CTAButton = ({ text, link }) => {
   return (
-    <Link
-      to={link}
-      className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"
+    <a
+      href={link}
+      className="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition"
     >
       {text}
-    </Link>
+    </a>
   );
 };
 

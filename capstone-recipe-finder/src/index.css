@@ -1,8 +1,10 @@
-/* index.css */
-@import './tailwind.css'; /* Import Tailwind's generated styles */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+}
 
-/* Custom styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+.carousel > * {
+  scroll-snap-align: center;
 }

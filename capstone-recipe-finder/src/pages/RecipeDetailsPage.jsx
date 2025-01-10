@@ -1,48 +1,30 @@
-import React from 'react';
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-const RecipeDetails = ({ recipe }) => {
-  if (!recipe) return <div>Recipe not found</div>;
-
+const RecipeDetailsPage = () => {
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      {/* Real API image */}
-      <img src={recipe.strMealThumb} alt={recipe.strMeal} className="w-full rounded-lg mb-6" />
-      
-      {/* Real title */}
-      <h1 className="text-3xl font-bold mb-4">{recipe.strMeal}</h1>
-      
-      {/* Ingredients */}
-      <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
-      <ul className="list-disc pl-6">
-        {Object.keys(recipe)
-          .filter((key) => key.startsWith("strIngredient") && recipe[key])
-          .map((key, index) => (
-            <li key={index}>
-              {recipe[key]} - {recipe[`strMeasure${key.replace("strIngredient", "")}`] || "N/A"}
-            </li>
-          ))}
-      </ul>
-
-      {/* Instructions */}
-      <h2 className="text-xl font-semibold mt-6 mb-2">Instructions</h2>
-      <p className="text-gray-700">{recipe.strInstructions || "No instructions available"}</p>
-
-      {/* YouTube Video */}
-      {recipe.strYoutube && (
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">Video Tutorial</h2>
-          <iframe
-            width="100%"
-            height="400"
-            src={`https://www.youtube.com/embed/${recipe.strYoutube.split("v=")[1]}`}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+    <>
+      <Navbar />
+      <header className="bg-gray-200 py-6">
+        <h1 className="text-4xl font-bold text-center">Recipe Details</h1>
+      </header>
+      <main className="p-6">
+        <div className="max-w-4xl mx-auto">
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Recipe"
+            className="w-full rounded-lg"
+          />
+          <h2 className="text-3xl font-bold mt-6">Recipe Title</h2>
+          <p className="text-gray-700 mt-4">
+            Detailed description of the recipe and instructions.
+          </p>
         </div>
-      )}
-    </div>
+      </main>
+      <Footer />
+    </>
   );
 };
-export default RecipeDetails;
+
+export default RecipeDetailsPage;
