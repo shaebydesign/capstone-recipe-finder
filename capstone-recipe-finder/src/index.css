@@ -1,10 +1,4 @@
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 1rem;
-}
-
-.carousel > * {
-  scroll-snap-align: center;
-}
+/* Tailwind directives for base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

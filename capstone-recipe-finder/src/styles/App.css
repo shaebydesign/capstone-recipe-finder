@@ -1,0 +1,74 @@
+/* src/styles/App.css */
+
+/* Container for the homepage */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Title for the homepage */
+.home-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Recipes grid */
+.recipes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Individual recipe card */
+.recipe-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Recipe image */
+.recipe-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Info inside the recipe card */
+.recipe-info {
+  padding: 16px;
+  text-align: center;
+}
+
+/* Recipe name */
+.recipe-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Recipe category */
+.recipe-category {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Link to recipe detail */
+.recipe-link {
+  margin-top: 10px;
+  display: inline-block;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.recipe-link:hover {
+  color: #0056b3;
+}
