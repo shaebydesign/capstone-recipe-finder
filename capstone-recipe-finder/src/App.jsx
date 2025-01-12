@@ -1,7 +1,7 @@
 // src/App.jsx
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { fetchMeals } from './api/mealdb';
+import { fetchMeals } from './api/mealdb';  // Ensure this import is correct
 import './styles/App.css';  // Import custom CSS
 import RecipeDetail from './pages/RecipeDetail';
 import Home from './pages/Home'; // Home page for recipe list
@@ -16,7 +16,7 @@ const App = () => {
     setLoading(true);
     setError(null);
     try {
-      const data = await fetchMeals(query);
+      const data = await fetchMeals(query);  // Make sure this function fetches the correct data
       setMeals(data || []);
     } catch (error) {
       setError('Failed to fetch meals. Please try again.');

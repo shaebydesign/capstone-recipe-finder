@@ -130,4 +130,3 @@ const RecipeListPage = () => {
 };
 
 export default RecipeListPage;
-
